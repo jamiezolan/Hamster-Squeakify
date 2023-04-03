@@ -1,19 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const squeakifyButton = document.getElementById('squeakify');
+    const unsqueakifyButton = document.getElementById('unsqueakify');
   
-    squeakifyButton.addEventListener('click', async () => {
-      // Inject the content script into the active tab
-      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    function executeContentScript(action) {
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.scripting.executeScript(
+          {
+            target: { tabId: tabs[0].id },
+            files: ['content.js']
+          },
+          () => {
+            // Send a message to the content script to perform the specified action
+            chrome.tabs.sendMessage(tabs[0].id, { action });
   
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        files: ['content.js']
-      }, () => {
-        // Send a message to the content script to squeakify the page
-        chrome.tabs.sendMessage(tab.id, { action: 'squeakify' });
-  
-        // Close the popup after the button is clicked
-        window.close();
+            // Close the popup after the button is clicked
+            window.close();
+          }
+        );
       });
+    }
+  
+    squeakifyButton.addEventListener('click', () => {
+      executeContentScript('squeakify');
+    });
+  
+    unsqueakifyButton.addEventListener('click', () => {
+      executeContentScript('unsqueakify');
     });
   });
+  
