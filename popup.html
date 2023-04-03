@@ -9,12 +9,40 @@
         margin: 0;
         padding: 10px;
         font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0e3a3;
+        color: #4d4b40;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 10px;
+        margin: 5px;
+        border: 2px solid #4d4b40;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #4d4b40;
+        cursor: pointer;
+        outline: none;
+      }
+
+      button:hover {
+        background-color: #4d4b40;
+        color: #fff;
       }
     </style>
   </head>
   <body>
     <h1>Hamster Squeakify</h1>
-    <p>Click the button to squeakify or unsqueakify the page!</p>
     <button id="squeakify">Squeakify</button>
     <button id="unsqueakify">Unsqueakify</button>
     <script src="popup.js"></script>
