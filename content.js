@@ -13,4 +13,13 @@ function squeakifyNode(node) {
   }
 }
 
-squeakifyNode(document.body);
+function squeakifyPage() {
+  squeakifyNode(document.body);
+}
+
+// Listen for the message from the popup script
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'squeakify') {
+    squeakifyPage();
+  }
+});
