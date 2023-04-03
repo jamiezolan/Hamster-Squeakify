@@ -11,7 +11,7 @@
     "default_icon": "icon48.png",
     "default_popup": "popup.html"
   },
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "scripting"],
   "content_scripts": [
     {
       "matches": ["*://*/*"],
