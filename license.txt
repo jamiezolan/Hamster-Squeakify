@@ -1,0 +1,5 @@
+Copyright (c) 2023 Jamie Zolan
+
+All rights reserved.
+
+This software and related documentation are the property of Jamie Zolan and are provided "as is" without warranty of any kind.
