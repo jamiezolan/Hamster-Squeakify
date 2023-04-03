@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Hamster Squeakify",
+  "version": "1.0",
+  "description": "Transforms the content of a webpage into hamster squeaks.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
